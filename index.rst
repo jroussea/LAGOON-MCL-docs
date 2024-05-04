@@ -16,5 +16,6 @@ LAGOON-MCL documentation
    introduction
    installation
    command
+   rshiny
    citing
    contact
