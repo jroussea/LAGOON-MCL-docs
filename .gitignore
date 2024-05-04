@@ -1,6 +1,1 @@
-build/
-make.bat
-Makefile
-_static/
-_templates/
 .venv/
