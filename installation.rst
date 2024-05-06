@@ -1,32 +1,42 @@
-Installation
-============
+Installation requirements
+=========================
 
-Requirements
-------------
+LAGOON-MCL est développé pour être éxécuté sur les systèmes 
+Linux. Pour le moment aucune version n'a été testé sur systèmes 
+d'exploitation Windows et Apple (Mac OS X), mais il est possible 
+qu'il puisse fonctionner sur les système d'exploitations Apple en 
+utilisant Conda or Mamba.
 
-LAGOON-MCL uses `NextFlow <https://www.nextflow.io/>`__ as a workflow 
-manager and `Singularity <https://sylabs.io/singularity/>`__ or
-`Conda <https://conda.io/projects/conda/en/latest/user-guide/install/
-index.html>`__ for the use of different tools.
+Software requirements:
+ * 64-bits Linux
+ * `NextFlow <https://www.nextflow.io/>`__ 
+ * `Conda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`__
+ * `Singularity <https://sylabs.io/singularity/>`__
+
+Il est possibile d'exécuter LAGOON-MCL avec soit Conda, 
+soit Singularity.
 
 .. note::
 
-   This workflow is developed with:
-    * NextFlow = 23.10.0.5889
-    * Conda = 24.1.2
-    * Singularity = 4.1.0.
+   Ce workflow est développé:
+    * NextFlow, version 23.10.0.5889
+    * Conda, version 24.1.2
+    * Mamba, version 1.5.8
+    * Singularity, version 4.1.0.
 
 Linux systeme
 -------------
 
 The pipeline was tested on Ubuntu 20.04 and Ubuntu 22.04.
 
-With Conda
-~~~~~~~~~~
+Conda or Mamba
+~~~~~~~~~~~~~~
 
-1. Install `NextFlow <https://www.nextflow.io/docs/latest/getstarted.html#installation>`_ 
-2. Install `Conda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
-   (`Anaconda <https://www.anaconda.com/download>`_ or `Miniconda <https://docs.anaconda.com/free/miniconda/>`_)
+1. Install `NextFlow <https://www.nextflow.io/docs/latest/getstarted.html#installation>`_
+2. | Install `Conda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
+   | For Conda : `Anaconda <https://www.anaconda.com/download>`_ 
+     or `Miniconda <https://docs.anaconda.com/free/miniconda/>`_
+   | For Mamba : `Miniforge <https://github.com/conda-forge/miniforge>`_
 3. Download last release:
 
 .. code-block:: shell
@@ -38,10 +48,14 @@ With Conda
 
 .. code-block:: shell
     
+    # With conda
     nextflow run main.nf -profile test_full,conda
 
-With Singularity
-~~~~~~~~~~~~~~~~
+    # With mamba
+    nextflow rum main.nf -profile test_full,mamba
+
+Singularity
+~~~~~~~~~~~
 
 1. Install `NextFlow <https://www.nextflow.io/docs/latest/getstarted.html#installation>`_ 
 2. Install `Singularity <https://docs.sylabs.io/guides/4.1/user-guide/quick_start.html#quick-installation-steps>`_
@@ -52,7 +66,13 @@ With Singularity
     git clone https://github.com/jroussea/lagoon-mcl.git
     cd lagoon-mcl
 
-4. Build containers
+4. | Build containers
+   | Pour le moment il est nécessaire de construire les containers 
+     Singularity. Pour cela, un script bash est disponible.
+   
+   | Vous pouvez trouver les Singularity Definition File dans 
+     ``containers/singularity``. Une fois créé, les conteneurs seronr 
+     disponible dans le même dossier.
 
 .. code-block:: shell
 
