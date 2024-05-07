@@ -14,28 +14,47 @@ FASTA file. If there are several files use ``*.extension``.
 
 .. code-block:: shell
     
-    # #Example: 
-    nextflow run main.nf [profile] --fasta $baseDir/tests/full/tr_files_test/*.fasta
+    # Example: 
+    --fasta "tests/full/tr_files_test/*.fasta"
 
 * ``--annotation <path>``
 
-| Path to sequence annotation files. You should not specify the name 
-  of the file(s) but only the name of the folder containing the files.
-| Exemple: ``--annotation $baseDir/tests/full/an_files_test``
+Path to sequence annotation files. You should not specify the name 
+of the file(s) but only the name of the folder containing the files.
+
+.. code-block:: shell
+
+  # Example
+  --annotation "tests/full/an_files_test/*.tsv"
+
+.. warning::
+
+  | For the ``--fasta`` and ``--annotation`` options, it is 
+    necessary to surround the paths with double quotation marks 
+    ``” ... “``. This allows NextFlow to take ``*`` asterisks 
+    into account.
+  | For more information, see the `NextFlow documentation. <https://www.nextflow.io/docs/latest/cli.html#pipeline-parameters>`_
 
 * ``--pep_colname <str>``
 
-| Name of the column containing the sequence names in the annotation 
-  file(s). 
-| Example: ``--pep_colname peptides``
+Name of the column containing the sequence names in the annotation file(s). 
+
+.. code-block:: shell
+
+  # Example
+  --pep_colname peptides
+
 
 * ``--columns_attributes <list>``
 
-| Cette commande permet de sélectionner les colonnes qui vont être 
-  utilisé comme label au moment de la construction des clusters
-| Cette commande utilise une liste ou chaque colonne est séparé 
-  par une vigule ``,``.
-| Example: ``--columns_attributes identifiant,interproscan,go``
+| This command is used to select the columns to be used as 
+  labels when building clusters.
+| It uses a list where each column is separated by a comma ``,``.
+
+.. code-block:: shell
+
+  # Example
+  --columns_attributes identifiant,interproscan,go
 
 .. tip:: 
 
@@ -43,7 +62,7 @@ FASTA file. If there are several files use ``*.extension``.
      (contains the names of the databases: Pfam, CATH, ...) 
      and the identifier (contains the identifiers specific to 
      the databases) it is necessary to separate them by ``-``.
-   | Exemple: ``--columns_attributes database-identifiant,interproscan``
+   | Example: ``--columns_attributes database-identifiant,interproscan``
 
 
 Optional
@@ -55,19 +74,35 @@ Default: ``LAGOON-MCL``
 
 | Name of the project il est utilisé comme nom pour le dossier 
   contenant les fichiers temporaire.
-| Il peut être retouvé dans le dossier : ``workdir/$projectName``
+| It can be retrieved from the folder: ``workdir/$projectName``
+
+.. code-block:: shell
+
+  # Example
+  --projectName lagoon-mcl
 
 * ``--outdir <path>``
 
 Default: ``"$baseDir/results"``
 
-Path to the folder containing the results. Ce dossier contiendra
-Tous les dossiers et fichiers de sortie de LAGOON-MCL.
+Path to the folder containing the results. This folder will contain 
+all LAGOON-MCL output files and folders.
+
+.. code-block:: shell
+
+  # Example
+  --outdir path/to/folder/results
 
 * ``--concat_fasta <str>``
 
+Default: ``all_sequences``
+
 Name of the file that will contain all the fasta sequences.
 
+.. code-block:: shell
+
+  # Example
+  --outdir all_sequences
 
 * ``--information <true or false>``
 
@@ -77,8 +112,8 @@ Specify ``true`` if you have a ``TSV`` file which contains information
 that applies to all sequences in a file.
 
 .. note:: 
-  Si ``true``, il est obligatoire d'utiliser les paramètres 
-  ``--information_files`` et ``--information_attributes``.
+  If ``true``, the ``--information_files`` and 
+  ``--information_attributes`` parameters must be used.
 
 * ``--information_fils <path>``
 
@@ -91,12 +126,16 @@ Mandatory if ``--information true``
   30 different species (1 file = 1 species) then the TSV file will 
   contain 30 lines. For example, each line can correspond to the 
   taxonomy of each species. 
-| L'obejectif de ce fichier est d'appliquer toutes les informations
-  qu'il contient sur l'entiereté d'un fichier fasta. Cela permet 
-  d'éviter de les mettre dans les fichiers d'annotation et d'avoir
-  potentiellement de nombreuse ligne avec de nombreuses informations
-  manquante (dans le cas ou c'est ligne ou séqunece n'aurait pas 
-  était annoté fonctionnellement)
+| The purpose of this file is to apply all the information it 
+  contains to the entire fasta file. This avoids putting them in 
+  annotation files and potentially having many lines with a lot 
+  of missing information (in the event that these lines or sequences 
+  have not been functionally annotated).
+
+.. code-block:: shell
+
+  # Example
+  --information_fils path/to/information/file/file.tsv
 
 .. warning::
 
@@ -129,9 +168,14 @@ Parameters ``--diamond_db``, ``--matrix``, ``--sensitivity`` and
 
 Default: ``diamond_alignment.tsv``
 
-| Nom du fichier qui contiendra les alignements issus de Diamond BLASTp.
-| Si vous avez utilisé la commande ``--run_diamond false``, alors cette
-  option vous permettra d'indiquer le chemin vers votre fichier d'alignement.
+| Name of the file containing the alignments generated by Diamond BLASTp.
+| If you've used the ``--run_diamond false`` command, then this option will 
+  allow you to specify the path to your alignment file.
+
+.. code-block:: shell
+
+  # Example
+  --diamond path/to/file/blast_alignment.tsv
 
 * ``--sensitivity <str>``
 
@@ -145,6 +189,11 @@ Default: ``sensitive``
       - very-sensitive
       - sensitive
       - ultra-sensitive
+
+.. code-block:: shell
+
+  # Example
+  --sensitivity sensitive
 
 For more information, see the `Diamond documentation <https://github.com/
 bbuchfink/diamond/wiki/3.-Command-line-options#sensitivity-modes>`_ .
@@ -163,7 +212,13 @@ Default: ``BLOSUM62``
       - PAM250
       - PAM70
       - PAM30
-  
+
+
+.. code-block:: shell
+
+  # Example
+  --matrix BLOSUM62
+
 For more information, see the `Diamond documentation <https://github.com/bbuchfink/diamond/wiki/3.-Command-line-options#alignment-options>`__.
 
 * ``--diamond_evalue <int>``
@@ -185,27 +240,27 @@ Running Markov CLustering algorithm.
 
 .. tip::
 
-  vous pouvez utiliser ``--run_mcl false`` si vous voulez tester
-  préalablement différents paramètres pour Diamond BLASTp.
+  you can use ``--run_mcl false`` if you want to pre-test 
+  different parameters for Diamond BLASTp.
 
 
 * ``--I <list>``
 
 Default: ``1.4,2,4``
 
-List des différents paramètres d'inflations que vous voulez utiliser
-pour le clustering. Il faut séparer chaque paramètre par une virgule ``,``.
-Il est également possible de sépcifier des foat, le séparateur décimal
-doit être un point ``.``, par exemple : 1.4.
+| List of the different inflations parameters you want to use for clustering. 
+  Each parameter must be separated by a comma ``,``.
+| It is also possible to specify foats, the decimal separator 
+  must be a dot, for example: 1.4.
 
 For more information, see the `MCL documentation <https://micans.org/mcl/>`__.
 
 .. note:: 
 
-  Vous pourrez comparer chaque clustering réalisé grace aux différents
-  score que fourni LAGOON-MCL, notamment le score d'homogénéité, qui 
-  est calculé pour chaque attribut fournis avec les options : 
-  ``--columns_attributes`` et ``--information_attributes``.
+  You can compare each clustering with the different scores provided by LAGOON-MCL, 
+  in particular the homogeneity score, which is calculated for 
+  each attribute provided with the options: ``--columns_attributes`` 
+  and ``--information_attributes``.
 
 * ``--max_weight <float>``
 

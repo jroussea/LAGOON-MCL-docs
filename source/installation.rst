@@ -1,11 +1,10 @@
 Installation requirements
 =========================
 
-LAGOON-MCL est développé pour être éxécuté sur les systèmes 
-Linux. Pour le moment aucune version n'a été testé sur systèmes 
-d'exploitation Windows et Apple (Mac OS X), mais il est possible 
-qu'il puisse fonctionner sur les système d'exploitations Apple en 
-utilisant Conda or Mamba.
+LAGOON-MCL has been developed to run on Linux systems. No 
+version has yet been tested on Windows or Apple (Mac OS X) 
+operating systems, but it may be possible to run it on Apple 
+operating systems using Conda.
 
 Software requirements:
  * 64-bits Linux
@@ -13,8 +12,7 @@ Software requirements:
  * `Conda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`__
  * `Singularity <https://sylabs.io/singularity/>`__
 
-Il est possibile d'exécuter LAGOON-MCL avec soit Conda, 
-soit Singularity.
+You can run LAGOON-MCL with Conda or Singularity.
 
 .. note::
 
@@ -29,14 +27,13 @@ Linux systeme
 
 The pipeline was tested on Ubuntu 20.04 and Ubuntu 22.04.
 
-Conda or Mamba
-~~~~~~~~~~~~~~
+Conda
+~~~~~
 
 1. Install `NextFlow <https://www.nextflow.io/docs/latest/getstarted.html#installation>`_
 2. | Install `Conda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
    | For Conda : `Anaconda <https://www.anaconda.com/download>`_ 
      or `Miniconda <https://docs.anaconda.com/free/miniconda/>`_
-   | For Mamba : `Miniforge <https://github.com/conda-forge/miniforge>`_
 3. Download last release:
 
 .. code-block:: shell
@@ -51,9 +48,6 @@ Conda or Mamba
     # With conda
     nextflow run main.nf -profile test_full,conda
 
-    # With mamba
-    nextflow rum main.nf -profile test_full,mamba
-
 Singularity
 ~~~~~~~~~~~
 
@@ -67,12 +61,11 @@ Singularity
     cd lagoon-mcl
 
 4. | Build containers
-   | Pour le moment il est nécessaire de construire les containers 
-     Singularity. Pour cela, un script bash est disponible.
+   | For the moment, it's necessary to build the Singularity containers. 
+     A bash script is available for this purpose.
    
-   | Vous pouvez trouver les Singularity Definition File dans 
-     ``containers/singularity``. Une fois créé, les conteneurs seronr 
-     disponible dans le même dossier.
+   | You can find the Singularity Definition File in containers/singularity. 
+     Once created, the containers will be available in the same folder.
 
 .. code-block:: shell
 

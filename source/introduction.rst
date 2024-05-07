@@ -13,7 +13,7 @@ LAGOON-MCL is a new version of `LAGOON <https://github.com/Dylkln
 
 Pipeline
 --------
-.. image:: images/pipeline.svg
+.. image:: assets/pipeline.svg
     :alt: pipeline
 
 Development
@@ -24,8 +24,3 @@ LAGOON-MCL is developed by the `Atelier de BioInformatique <https://bioinfo
 Evolution, Biodiversity - UMR 7205 <https://isyeb.mnhn.fr/en>`_ 
 (`National Museum Natural History <https://www.mnhn.fr/en>`_, Paris,
 France).
-
-
-
-
-

@@ -7,5 +7,5 @@ I am currently developing a R Shiny application. It is available on
 
 .. note:: 
     
-    Cette page contiendra toutes les informations relatif à l'utilisation
-    de cette application : installation, paramètres, ...
+    This page contains all the information you need to use this application: 
+    installation, settings, ...
