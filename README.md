@@ -7,7 +7,7 @@ To contribute to the documentation
 3. Activate the environment `source myvenv/bin/activate`
 4. Install requirements `pip install -r requirements.txt`
 
-LThe documentation is written in [reStrutured Text (rst)](https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html).
+The documentation is written in [reStructuredText (RST)](https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html).
 
 To view the documentation before making a `git push`, you must compile the rst code in html with :
 
