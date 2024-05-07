@@ -1,13 +1,11 @@
 Command line option
 ===================
 
-LAGOON-MCL parameters
----------------------
+LAGOON-MCL - mandatory parameters
+---------------------------------
 
-Mandatory
-~~~~~~~~~
-
-* ``--fasta <path>``
+``--fasta <path>``
+~~~~~~~~~~~~~~~~~~
 
 Path to fasta files. It is necessary to indicate the name of the 
 FASTA file. If there are several files use ``*.extension``.
@@ -17,7 +15,8 @@ FASTA file. If there are several files use ``*.extension``.
     # Example: 
     --fasta "tests/full/tr_files_test/*.fasta"
 
-* ``--annotation <path>``
+``--annotation <path>``
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Path to sequence annotation files. You should not specify the name 
 of the file(s) but only the name of the folder containing the files.
@@ -35,7 +34,8 @@ of the file(s) but only the name of the folder containing the files.
     into account.
   | For more information, see the `NextFlow documentation. <https://www.nextflow.io/docs/latest/cli.html#pipeline-parameters>`_
 
-* ``--pep_colname <str>``
+``--pep_colname <str>``
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Name of the column containing the sequence names in the annotation file(s). 
 
@@ -44,8 +44,8 @@ Name of the column containing the sequence names in the annotation file(s).
   # Example
   --pep_colname peptides
 
-
-* ``--columns_attributes <list>``
+``--columns_attributes <list>``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | This command is used to select the columns to be used as 
   labels when building clusters.
@@ -64,11 +64,11 @@ Name of the column containing the sequence names in the annotation file(s).
      the databases) it is necessary to separate them by ``-``.
    | Example: ``--columns_attributes database-identifiant,interproscan``
 
+LAGOON-MCL - optional parameters
+--------------------------------
 
-Optional
-~~~~~~~~
-
-* ``--projectName <str>``
+``--projectName <str>``
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``LAGOON-MCL``
 
@@ -81,7 +81,8 @@ Default: ``LAGOON-MCL``
   # Example
   --projectName lagoon-mcl
 
-* ``--outdir <path>``
+``--outdir <path>``
+~~~~~~~~~~~~~~~~~~~
 
 Default: ``"$baseDir/results"``
 
@@ -93,7 +94,8 @@ all LAGOON-MCL output files and folders.
   # Example
   --outdir path/to/folder/results
 
-* ``--concat_fasta <str>``
+``--concat_fasta <str>``
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``all_sequences``
 
@@ -104,7 +106,8 @@ Name of the file that will contain all the fasta sequences.
   # Example
   --outdir all_sequences
 
-* ``--information <true or false>``
+``--information <true or false>``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``false``
 
@@ -115,7 +118,8 @@ that applies to all sequences in a file.
   If ``true``, the ``--information_files`` and 
   ``--information_attributes`` parameters must be used.
 
-* ``--information_fils <path>``
+``--information_fils <path>``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Mandatory if ``--information true``
 
@@ -146,7 +150,8 @@ Mandatory if ``--information true``
     
     It is possible to specify only one TSV file with this option 
 
-* ``--information_attributes <list>``
+``--information_attributes <list>``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Mandatory if ``--information true``
 
@@ -156,7 +161,8 @@ For more information, see ``--columns_attributes``.
 Diamond parameters
 ------------------
 
-* ``--run_diamond <true or false>``
+``--run_diamond <true or false>``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``true``
 
@@ -177,7 +183,8 @@ Default: ``diamond_alignment.tsv``
   # Example
   --diamond path/to/file/blast_alignment.tsv
 
-* ``--sensitivity <str>``
+``--sensitivity <str>``
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``sensitive``
 
@@ -198,7 +205,8 @@ Default: ``sensitive``
 For more information, see the `Diamond documentation <https://github.com/
 bbuchfink/diamond/wiki/3.-Command-line-options#sensitivity-modes>`_ .
 
-* ``--matrix <str>``
+``--matrix <str>``
+~~~~~~~~~~~~~~~~~~
 
 Default: ``BLOSUM62``
 
@@ -221,7 +229,8 @@ Default: ``BLOSUM62``
 
 For more information, see the `Diamond documentation <https://github.com/bbuchfink/diamond/wiki/3.-Command-line-options#alignment-options>`__.
 
-* ``--diamond_evalue <int>``
+``--diamond_evalue <int>``
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``0.001``
 
@@ -232,7 +241,8 @@ For more information, see the `Diamond documentation <https://github.com/bbuchfi
 MCL parameters
 --------------
 
-* ``--run_mcl <true or false>``
+``--run_mcl <true or false>``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``true``
 
@@ -244,7 +254,8 @@ Running Markov CLustering algorithm.
   different parameters for Diamond BLASTp.
 
 
-* ``--I <list>``
+``--I <list>``
+~~~~~~~~~~~~~~
 
 Default: ``1.4,2,4``
 
@@ -262,7 +273,8 @@ For more information, see the `MCL documentation <https://micans.org/mcl/>`__.
   each attribute provided with the options: ``--columns_attributes`` 
   and ``--information_attributes``.
 
-* ``--max_weight <float>``
+``--max_weight <float>``
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``350``
 
