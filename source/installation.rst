@@ -87,6 +87,19 @@ Singularity
 
     chmod +x bin/*
 
+Jupyter Notebook environment
+----------------------------
+
+Jupyter Notebook is used with the ``lagoon-mcl-jupyter.yaml`` environment. To do this, run the command :
+
+.. code-block:: shell
+
+    mamba env create -f lagoon-mcl-jupyter.yaml
+
+    # OR
+
+    conda env create -f lagoon-mcl-jupyter.yaml
+
 Shiny application
 -----------------
 
