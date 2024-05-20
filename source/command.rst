@@ -1,8 +1,35 @@
 Command line option
 ===================
 
-LAGOON-MCL - mandatory parameters
----------------------------------
+LAGOON-MCL parameters
+---------------------
+
+``--projectName <str>``
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Default: ``LAGOON-MCL``
+
+| Name of the project il est utilisé comme nom pour le dossier 
+  contenant les fichiers temporaire.
+| It can be retrieved from the folder: ``workdir/$projectName``
+
+.. code-block:: shell
+
+  # Example
+  --projectName lagoon-mcl
+
+``--outdir <path>``
+~~~~~~~~~~~~~~~~~~~
+
+Default: ``"$baseDir/results"``
+
+Path to the folder containing the results. This folder will contain 
+all LAGOON-MCL output files and folders.
+
+.. code-block:: shell
+
+  # Example
+  --outdir path/to/folder/results
 
 ``--fasta <path>``
 ~~~~~~~~~~~~~~~~~~
@@ -63,36 +90,6 @@ Name of the column containing the sequence names in the annotation file(s).
      and the identifier (contains the identifiers specific to 
      the databases) it is necessary to separate them by ``-``.
    | Example: ``--columns_attributes database-identifiant,interproscan``
-
-LAGOON-MCL - optional parameters
---------------------------------
-
-``--projectName <str>``
-~~~~~~~~~~~~~~~~~~~~~~~
-
-Default: ``LAGOON-MCL``
-
-| Name of the project il est utilisé comme nom pour le dossier 
-  contenant les fichiers temporaire.
-| It can be retrieved from the folder: ``workdir/$projectName``
-
-.. code-block:: shell
-
-  # Example
-  --projectName lagoon-mcl
-
-``--outdir <path>``
-~~~~~~~~~~~~~~~~~~~
-
-Default: ``"$baseDir/results"``
-
-Path to the folder containing the results. This folder will contain 
-all LAGOON-MCL output files and folders.
-
-.. code-block:: shell
-
-  # Example
-  --outdir path/to/folder/results
 
 ``--concat_fasta <str>``
 ~~~~~~~~~~~~~~~~~~~~~~~~
