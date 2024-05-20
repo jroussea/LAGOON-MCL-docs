@@ -16,6 +16,7 @@ LAGOON-MCL documentation
    introduction
    installation
    command
+   jupyter
    rshiny
    citing
    contact
